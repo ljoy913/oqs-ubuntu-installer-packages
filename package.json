@@ -1,0 +1,30 @@
+{
+  "name": "oqs-ubuntu-installer-packages",
+  "version": "0.5.0",
+  "description": "This project takes the OQS modified openssh-portable and builds installable packages for Ubuntu and Debian.",
+  "main": "index.js",
+  "scripts": {
+    "docker:image:ubuntu22.04": "docker build -t oqs-openssh:ubuntu22.04 ./ubuntu22.04",
+    "docker:build:ubuntu22.04": "docker run -it --rm -v $INIT_CWD/ubuntu22.04/packages:/packages oqs-openssh:ubuntu22.04",
+    "docker:image:ubuntu20.04": "docker build -t oqs-openssh:ubuntu20.04 ./ubuntu20.04",
+    "docker:build:ubuntu20.04": "docker run -it --rm -v $INIT_CWD/ubuntu20.04/packages:/packages oqs-openssh:ubuntu20.04",
+    "docker:image:ubuntu18.04": "docker build -t oqs-openssh:ubuntu18.04 ./ubuntu18.04",
+    "docker:build:ubuntu18.04": "docker run -it --rm -v $INIT_CWD/ubuntu18.04/packages:/packages oqs-openssh:ubuntu18.04",
+    "docker:image:debian10": "docker build -t oqs-openssh:debian10 ./debian10",
+    "docker:build:debian10": "docker run -it --rm -v $INIT_CWD/debian10/packages:/packages oqs-openssh:debian10",
+    "docker:image:debian11": "docker build -t oqs-openssh:debian11 ./debian11",
+    "docker:build:debian11": "docker run -it --rm -v $INIT_CWD/debian11/packages:/packages oqs-openssh:debian11",
+    "clean:all": "sudo rm -rf debian11/packages debian10/packages ubuntu18.04/packages ubuntu20.04/packages ubuntu22.04/packages"
+  },
+  "keywords": [],
+  "author": "Larry Joy",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ljoy913/oqs-ubuntu-installer-packages.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ljoy913/oqs-ubuntu-installer-packages/issues"
+  },
+  "homepage": "https://github.com/ljoy913/oqs-ubuntu-installer-packages#readme"
+}

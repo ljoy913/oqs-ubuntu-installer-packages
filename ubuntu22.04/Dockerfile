@@ -171,6 +171,9 @@ RUN export QUILT_PATCHES=debian/patches; \
     quilt new oqs.patch; \
     find $OQS_OPENSSH_SOURCE -type f -name \* -print | xargs realpath --relative-base=$OQS_OPENSSH_SOURCE | xargs quilt add; \
     cp -rv $OQS_OPENSSH_SOURCE/* $DEBIAN_OPENSSH_SOURCE; \
+    # TEMP: remove the version.h file as the 3-way patch cannot be resolved
+    quilt remove version.h; \
+    # ---------------------------------------------------------------------
     quilt refresh -p ab --strip-trailing-whitespace; \
     quilt pop
 
